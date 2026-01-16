@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Church Admin - Design System
+   Warm, inviting yet professional aesthetic
+   Deep charcoal for authority, warm amber/gold for spiritual warmth
+*/
+
+@layer base {
+  :root {
+    --background: 45 20% 97%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 35 92% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 45 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 35 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 65% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 95% 50%;
+    --warning-foreground: 220 20% 15%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 35 92% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom church admin tokens */
+    --gradient-warm: linear-gradient(135deg, hsl(35 92% 50%) 0%, hsl(25 95% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 25% 18%) 0%, hsl(220 30% 28%) 50%, hsl(35 50% 35%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 20% 98%) 100%);
+    
+    --shadow-soft: 0 2px 8px -2px hsl(220 20% 15% / 0.08), 0 4px 16px -4px hsl(220 20% 15% / 0.06);
+    --shadow-card: 0 4px 12px -2px hsl(220 20% 15% / 0.08), 0 8px 24px -4px hsl(220 20% 15% / 0.05);
+    --shadow-elevated: 0 8px 24px -4px hsl(220 20% 15% / 0.12), 0 16px 48px -8px hsl(220 20% 15% / 0.08);
+    --shadow-glow: 0 0 24px -4px hsl(35 92% 50% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 35 92% 50%;
+  }
+
+  .dark {
+    --background: 220 25% 10%;
+    --foreground: 45 20% 95%;
+
+    --card: 220 25% 14%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 220 25% 14%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 35 92% 55%;
+    --primary-foreground: 220 25% 10%;
+
+    --secondary: 220 20% 22%;
+    --secondary-foreground: 45 20% 95%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 35 80% 50%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 60% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 40 90% 55%;
+    --warning-foreground: 220 25% 10%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 35 92% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 30% 8%) 0%, hsl(220 35% 15%) 50%, hsl(35 40% 20%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220 25% 14%) 0%, hsl(220 25% 12%) 100%);
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 35 92% 55%;
+    --sidebar-primary-foreground: 220 25% 10%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 35 92% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-card {
+    @apply bg-gradient-to-br from-card to-muted/30 border border-border/50 rounded-xl p-5;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .input-focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .warm-gradient {
+    background: var(--gradient-warm);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
