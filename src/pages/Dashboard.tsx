@@ -207,7 +207,8 @@ const Dashboard: React.FC = () => {
                         eventName={event.name}
                         onViewQR={() => navigate(`/qr/${service.id}`)}
                         onViewAttendance={() => navigate(`/attendance/${service.id}`)}
-                        onCopyURL={() => copyQRUrl(service.qr_url)}
+                        onCopyURL={() => copyQRUrl(service.qrUrl)}
+                        total_attendees={event.total_attendees}
                         timeCategory={getTimeCategory(service.service_time)}
                       />
                     ))
@@ -262,14 +263,16 @@ interface ServiceCardProps {
   onViewAttendance: () => void;
   onCopyURL: () => void;
   timeCategory: string;
+  total_attendees:string
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   service,
   onViewQR,
   onViewAttendance,
-  onCopyURL,
+  // onCopyURL,
   timeCategory,
+  total_attendees
 }) => {
   const categoryColors = {
     morning: 'bg-amber-100 border-amber-200 text-amber-800',
@@ -290,10 +293,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             {service.service_code}
           </span>
           <span className="font-medium">{formatTime(service.service_time)}</span>
-          {service.attendance_count !== undefined && (
+          {total_attendees !== undefined && (
             <span className="text-sm text-muted-foreground flex items-center gap-1">
               <Users className="h-4 w-4" />
-              {service.attendance_count}
+              {total_attendees}
             </span>
           )}
         </div>
@@ -307,9 +310,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             <Users className="h-4 w-4 mr-1" />
             Attendance
           </Button>
-          <Button variant="ghost" size="icon" onClick={onCopyURL}>
+          {/* <Button variant="ghost" size="icon" onClick={onCopyURL}>
             <Copy className="h-4 w-4" />
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>

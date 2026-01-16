@@ -22,7 +22,10 @@ const CreateService: React.FC = () => {
   const [fetchingEvent, setFetchingEvent] = useState(true);
 
   useEffect(() => {
-    const fetchEvent = async () => {
+    
+    fetchEvent();
+  }, [eventId]);
+const fetchEvent = async () => {
       if (!eventId) return;
       try {
         const response = await eventAPI.getAll();
@@ -37,9 +40,6 @@ const CreateService: React.FC = () => {
         setFetchingEvent(false);
       }
     };
-    fetchEvent();
-  }, [eventId]);
-
   const handleAddService = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -56,10 +56,10 @@ const CreateService: React.FC = () => {
     setLoading(true);
     try {
       const response = await serviceAPI.create(eventId!, serviceCode.trim(), serviceTime);
-      const newService = response.data;
-      setServices((prev) => [...prev, newService]);
-      setServiceCode('');
-      toast.success('Service added successfully!');
+      if(response.status==200){
+         fetchEvent();
+         toast.success('Service added successfully!');
+      }
     } catch (error: any) {
       toast.error(error.response?.data?.error || 'Failed to create service');
     } finally {

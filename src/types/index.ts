@@ -2,42 +2,44 @@ export interface Service {
   id: string;
   service_code: string;
   service_time: string;
-  qr_url: string;
-  attendance_count?: number;
-  event_id?: string;
-  created_at?: string;
+  qrUrl: string;
 }
 
 export interface Event {
   id: string;
   name: string;
   event_date: string;
-  created_at?: string;
+  total_attendees?: string;
   services: Service[];
 }
 
 export interface Attendee {
   id: string;
-  full_name: string;
+  church_id: string;
   phone: string;
-  member_type: 'regular' | 'guest';
-  check_in_time: string;
+  full_name: string;
+  email: string;
+  created_at: string;
+  last_updated: string;
+  coming_from: string;
+  member_type: 'regular' | 'guest' | 'online viewer';
+  attending_with: string;
+  since_year: number;
+  gender: string;
+  baptised: boolean;
+  baptised_year: string;
+  submitted_at: string;
+  prayer_request?: string;
 }
 
 export interface AttendanceStats {
   total_count: number;
   regular_count: number;
   guest_count: number;
+  online_count: number;
 }
 
 export interface AttendanceData {
-  service: {
-    id: string;
-    service_code: string;
-    service_time: string;
-    event_name: string;
-    event_date: string;
-  };
+  count: number;
   attendees: Attendee[];
-  stats: AttendanceStats;
 }

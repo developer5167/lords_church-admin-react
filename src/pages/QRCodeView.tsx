@@ -74,21 +74,21 @@ const QRCodeView: React.FC = () => {
   };
 
   const handleCopyURL = () => {
-    if (service?.qr_url) {
-      navigator.clipboard.writeText(service.qr_url);
+    if (service?.qrUrl) {
+      navigator.clipboard.writeText(service.qrUrl);
       toast.success('QR URL copied to clipboard!');
     }
   };
 
   const handleShare = async () => {
-    if (!service?.qr_url) return;
+    if (!service?.qrUrl) return;
 
     if (navigator.share) {
       try {
         await navigator.share({
           title: `${eventName} - ${service.service_code}`,
           text: `Check in for ${eventName}`,
-          url: service.qr_url,
+          url: service.qrUrl,
         });
       } catch (error) {
         // User cancelled sharing
@@ -152,7 +152,7 @@ const QRCodeView: React.FC = () => {
             className="flex items-center justify-center bg-background rounded-lg p-6 mb-6"
           >
             <QRCodeSVG
-              value={service.qr_url}
+              value={service.qrUrl}
               size={280}
               level="H"
               includeMargin
@@ -167,7 +167,7 @@ const QRCodeView: React.FC = () => {
 
           <div className="text-center mb-6 print:hidden">
             <p className="text-sm text-muted-foreground break-all">
-              {service.qr_url}
+              {service.qrUrl}
             </p>
           </div>
 
