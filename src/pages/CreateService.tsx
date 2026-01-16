@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Header from '@/components/layout/Header';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -85,7 +84,6 @@ const fetchEvent = async () => {
   if (fetchingEvent) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <main className="container mx-auto px-4 py-6 max-w-lg">
           <div className="bg-card rounded-xl shadow-card p-6 animate-pulse">
             <div className="h-8 w-48 bg-muted rounded mb-4" />
@@ -98,8 +96,6 @@ const fetchEvent = async () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       <main className="container mx-auto px-4 py-6 max-w-lg">
         {/* Event Info */}
         {event && (

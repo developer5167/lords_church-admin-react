@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '@/components/layout/Header';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -168,7 +167,6 @@ const Attendance: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <main className="container mx-auto px-4 py-6 max-w-2xl">
           <div className="space-y-4">
             <LoadingSkeleton variant="stat" />
@@ -191,7 +189,6 @@ const Attendance: React.FC = () => {
   if (!data) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <main className="container mx-auto px-4 py-6">
           <div className="text-center py-12">
             <p className="text-muted-foreground">Service not found</p>
@@ -203,8 +200,6 @@ const Attendance: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       <main className="container mx-auto px-4 py-6 max-w-2xl">
         {/* Service Info */}
         {service && (

@@ -67,4 +67,13 @@ export const paymentAPI = {
     apiClient.post('/admin/church/payment-link', { paymentLink }),
 };
 
+export const baptismAPI = {
+  getAll: (status?: 'pending' | 'completed') => {
+    const params = status ? `?status=${status}` : '';
+    return apiClient.get(`/admin/baptism-requests${params}`);
+  },
+  complete: (requestId: string) =>
+    apiClient.patch(`/admin/baptism-requests/${requestId}/complete`),
+};
+
 export default apiClient;

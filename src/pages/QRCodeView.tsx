@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
-import Header from '@/components/layout/Header';
 import { Button } from '@/components/ui/button';
 import { eventAPI } from '@/services/api';
 import { Event, Service } from '@/types';
@@ -105,7 +104,6 @@ const QRCodeView: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <main className="container mx-auto px-4 py-6 max-w-lg">
           <div className="bg-card rounded-xl shadow-card p-8 animate-pulse">
             <div className="h-80 w-80 bg-muted rounded-lg mx-auto" />
@@ -118,7 +116,6 @@ const QRCodeView: React.FC = () => {
   if (!service) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
         <main className="container mx-auto px-4 py-6">
           <div className="text-center py-12">
             <p className="text-muted-foreground">Service not found</p>
@@ -130,8 +127,6 @@ const QRCodeView: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       <main className="container mx-auto px-4 py-6 max-w-lg">
         {/* Service Info Card */}
         <div className="bg-primary/10 rounded-xl p-4 mb-6 border border-primary/20 animate-fade-in">

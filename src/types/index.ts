@@ -43,3 +43,13 @@ export interface AttendanceData {
   count: number;
   attendees: Attendee[];
 }
+
+export interface BaptismRequest {
+  id: string;
+  member_id: string;
+  created_at: string;
+  completed_at: string | null;
+  member_name: string;
+  member_phone: string;
+  member_email: string;
+}
