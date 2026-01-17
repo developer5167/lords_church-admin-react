@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://10.127.161.23:4000/api';
+const API_BASE_URL = 'http://10.223.152.23:4000/api';
 // const API_BASE_URL = 'http://13.201.163.103:4000/api';
 
 const apiClient = axios.create({
@@ -74,6 +74,34 @@ export const baptismAPI = {
   },
   complete: (requestId: string) =>
     apiClient.patch(`/admin/baptism-requests/${requestId}/complete`),
+};
+
+export const volunteerAPI = {
+  getAll: (params?: {
+    departmentNameId?: string;
+    departmentId?: string;
+    status?: 'pending' | 'completed';
+    page?: number;
+    limit?: number;
+    sortBy?: 'createdAt' | 'memberName';
+    sortOrder?: 'asc' | 'desc';
+  }) => {
+    const queryParams = new URLSearchParams();
+    if (params?.departmentNameId) queryParams.append('departmentNameId', params.departmentNameId);
+    if (params?.departmentId) queryParams.append('departmentId', params.departmentId);
+    if (params?.status) queryParams.append('status', params.status);
+    if (params?.page) queryParams.append('page', params.page.toString());
+    if (params?.limit) queryParams.append('limit', params.limit.toString());
+    if (params?.sortBy) queryParams.append('sortBy', params.sortBy);
+    if (params?.sortOrder) queryParams.append('sortOrder', params.sortOrder);
+    
+    const query = queryParams.toString();
+    return apiClient.get(`/admin/volunteer-requests${query ? `?${query}` : ''}`);
+  },
+  getById: (requestId: string) =>
+    apiClient.get(`/admin/volunteer-requests/${requestId}`),
+  updateStatus: (requestId: string, data: { status: 'completed'; notes?: string }) =>
+    apiClient.patch(`/admin/volunteer-requests/${requestId}`, data),
 };
 
 export default apiClient;

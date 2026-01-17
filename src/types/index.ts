@@ -53,3 +53,51 @@ export interface BaptismRequest {
   member_phone: string;
   member_email: string;
 }
+
+export interface Department {
+  id: string;
+  departmentName: string;
+  departmentHeading: string;
+  departmentHeadingId: string;
+  description?: string;
+}
+
+export interface VolunteerRequestMember {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  address?: string;
+  memberSince?: string;
+}
+
+export interface VolunteerRequest {
+  id: string;
+  member: VolunteerRequestMember;
+  status: 'pending' | 'completed';
+  createdAt: string;
+  updatedAt: string;
+  completedAt: string | null;
+  notes?: string;
+  departments: Department[];
+}
+
+export interface VolunteerRequestsResponse {
+  success: boolean;
+  data: {
+    requests: VolunteerRequest[];
+    pagination: {
+      currentPage: number;
+      totalPages: number;
+      totalItems: number;
+      itemsPerPage: number;
+      hasNextPage: boolean;
+      hasPrevPage: boolean;
+    };
+    filters?: {
+      status?: string;
+      departmentNameId?: string;
+      departmentId?: string;
+    };
+  };
+}

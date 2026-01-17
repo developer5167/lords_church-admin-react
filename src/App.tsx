@@ -15,6 +15,7 @@ import QRCodeView from "./pages/QRCodeView";
 import Attendance from "./pages/Attendance";
 import PaymentLink from "./pages/PaymentLink";
 import BaptismRequests from "./pages/BaptismRequests";
+import VolunteerRequests from "./pages/VolunteerRequests";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -103,6 +104,16 @@ const App = () => (
                   <ProtectedRoute>
                     <AppLayout>
                       <BaptismRequests />
+                    </AppLayout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/volunteer-requests"
+                element={
+                  <ProtectedRoute>
+                    <AppLayout>
+                      <VolunteerRequests />
                     </AppLayout>
                   </ProtectedRoute>
                 }

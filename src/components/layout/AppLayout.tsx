@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Church, CalendarPlus, Moon, Sun, CreditCard, Droplets } from 'lucide-react';
+import { Church, CalendarPlus, Moon, Sun, CreditCard, Droplets, Users } from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -64,6 +64,16 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
                   >
                     <Droplets className="h-4 w-4" />
                     <span>Baptism Requests</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    onClick={() => navigate('/volunteer-requests')}
+                    isActive={location.pathname === '/volunteer-requests'}
+                    tooltip="Volunteer Requests"
+                  >
+                    <Users className="h-4 w-4" />
+                    <span>Volunteer Requests</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
