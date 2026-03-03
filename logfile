@@ -1,0 +1,61 @@
+2026-01-21 14:10:44.650 IST [22595] LOG:  starting PostgreSQL 14.15 (Homebrew) on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.4), 64-bit
+2026-01-21 14:10:44.655 IST [22595] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-01-21 14:10:44.655 IST [22595] LOG:  listening on IPv6 address "::1", port 5432
+2026-01-21 14:10:44.656 IST [22595] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-01-21 14:10:44.686 IST [22596] LOG:  database system was shut down at 2026-01-17 22:31:26 IST
+2026-01-21 14:10:44.698 IST [22595] LOG:  database system is ready to accept connections
+2026-01-21 15:43:53.121 IST [28832] ERROR:  cannot drop the currently open database
+2026-01-21 15:43:53.121 IST [28832] STATEMENT:  drop database church_attendance_db
+	
+2026-01-21 15:44:00.127 IST [28832] ERROR:  cannot drop the currently open database
+2026-01-21 15:44:00.127 IST [28832] STATEMENT:  drop database church_attendance_db
+	
+2026-01-21 15:44:36.931 IST [28832] ERROR:  cannot drop the currently open database
+2026-01-21 15:44:36.931 IST [28832] STATEMENT:  drop database church_attendance_db
+	
+2026-01-21 15:45:58.538 IST [31440] FATAL:  role "church_user" does not exist
+2026-01-21 15:46:02.964 IST [28832] ERROR:  cannot drop the currently open database
+2026-01-21 15:46:02.964 IST [28832] STATEMENT:  drop database church_attendance_db
+	
+2026-01-21 16:27:54.252 IST [35124] FATAL:  role "church_user" does not exist
+2026-01-21 19:42:08.277 IST [50963] FATAL:  terminating connection due to administrator command
+2026-01-21 20:08:56.773 IST [22595] LOG:  received smart shutdown request
+2026-01-21 20:08:56.774 IST [22595] LOG:  background worker "logical replication launcher" (PID 22602) exited with exit code 1
+2026-01-21 20:08:56.774 IST [22597] LOG:  shutting down
+2026-01-21 20:08:56.790 IST [22595] LOG:  database system is shut down
+2026-02-01 15:23:10.698 IST [2477] LOG:  starting PostgreSQL 14.15 (Homebrew) on x86_64-apple-darwin23.6.0, compiled by Apple clang version 16.0.0 (clang-1600.0.26.4), 64-bit
+2026-02-01 15:23:10.702 IST [2477] LOG:  listening on IPv6 address "::1", port 5432
+2026-02-01 15:23:10.703 IST [2477] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-02-01 15:23:10.704 IST [2477] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-02-01 15:23:10.776 IST [2479] LOG:  database system was shut down at 2026-01-31 17:58:49 IST
+2026-02-01 15:23:10.830 IST [2477] LOG:  database system is ready to accept connections
+2026-02-01 15:29:55.430 IST [8627] ERROR:  syntax error at or near "from" at character 37
+2026-02-01 15:29:55.430 IST [8627] STATEMENT:  delete from baptism_requests
+	delete from volunteer_applications
+	delete from otps
+	delete from events
+	delete from members
+	delete from services
+	delete from registrations
+	delete from volunteer_applications
+2026-02-01 15:30:00.614 IST [8627] ERROR:  syntax error at or near "from" at character 25
+2026-02-01 15:30:00.614 IST [8627] STATEMENT:  delete from otps
+	delete from events
+	delete from members
+	delete from services
+	delete from registrations
+2026-02-01 15:30:04.133 IST [8627] ERROR:  syntax error at or near "from" at character 28
+2026-02-01 15:30:04.133 IST [8627] STATEMENT:  delete from members
+	delete from services
+	delete from registrations
+2026-02-01 15:30:12.811 IST [8627] ERROR:  syntax error at or near "from" at character 27
+2026-02-01 15:30:12.811 IST [8627] STATEMENT:  delete from events
+	delete from members
+2026-02-01 15:30:15.726 IST [8627] ERROR:  update or delete on table "members" violates foreign key constraint "baptism_requests_member_id_fkey" on table "baptism_requests"
+2026-02-01 15:30:15.726 IST [8627] DETAIL:  Key (id)=(b0093fd0-7d83-4153-863b-017a0ed4352a) is still referenced from table "baptism_requests".
+2026-02-01 15:30:15.726 IST [8627] STATEMENT:  delete from members
+	
+2026-02-01 16:14:45.121 IST [2477] LOG:  received smart shutdown request
+2026-02-01 16:14:45.123 IST [2477] LOG:  background worker "logical replication launcher" (PID 2485) exited with exit code 1
+2026-02-01 16:14:45.123 IST [2480] LOG:  shutting down
+2026-02-01 16:14:45.138 IST [2477] LOG:  database system is shut down

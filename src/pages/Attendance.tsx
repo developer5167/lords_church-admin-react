@@ -73,13 +73,13 @@ const Attendance: React.FC = () => {
     fetchAttendance();
   }, [fetchAttendance]);
 
-  // Auto-refresh every 30 seconds
+  // Auto-refresh every 5 seconds
   useEffect(() => {
     if (!autoRefresh) return;
     
     const interval = setInterval(() => {
       fetchAttendance(true);
-    }, 30000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [autoRefresh, fetchAttendance]);
