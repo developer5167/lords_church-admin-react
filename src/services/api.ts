@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const API_BASE_URL = 'http://192.168.15.187:4000/api'; 
-const API_BASE_URL = 'http://192.168.31.196:4000/api';
+const API_BASE_URL = 'http://192.168.15.165:4000/api';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -102,6 +102,21 @@ export const volunteerAPI = {
     apiClient.get(`/admin/volunteer-requests/${requestId}`),
   updateStatus: (requestId: string, data: { status: 'completed'; notes?: string }) =>
     apiClient.patch(`/admin/volunteer-requests/${requestId}`, data),
+};
+
+export const prayerRequestAPI = {
+  getAll: (date?: string) => {
+    const params = date ? `?date=${date}` : '';
+    return apiClient.get(`/admin/prayer-requests${params}`);
+  },
+  updateStatus: (requestId: string, status: string) =>
+    apiClient.put(`/admin/prayer-requests/${requestId}/status`, { status }),
+  exportCSV: (date?: string) => {
+    const params = date ? `?date=${date}` : '';
+    return apiClient.get(`/admin/prayer-requests/export${params}`, {
+      responseType: 'blob', // use blob or text, usually blob for file download
+    });
+  },
 };
 
 export default apiClient;

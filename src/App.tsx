@@ -16,6 +16,7 @@ import Attendance from "./pages/Attendance";
 import PaymentLink from "./pages/PaymentLink";
 import BaptismRequests from "./pages/BaptismRequests";
 import VolunteerRequests from "./pages/VolunteerRequests";
+import PrayerRequests from "./pages/PrayerRequests";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -114,6 +115,16 @@ const App = () => (
                   <ProtectedRoute>
                     <AppLayout>
                       <VolunteerRequests />
+                    </AppLayout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/prayer-requests"
+                element={
+                  <ProtectedRoute>
+                    <AppLayout>
+                      <PrayerRequests />
                     </AppLayout>
                   </ProtectedRoute>
                 }
