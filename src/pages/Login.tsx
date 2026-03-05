@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Eye, EyeOff, Church, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Login: React.FC = () => {
@@ -41,10 +41,13 @@ const Login: React.FC = () => {
         <div className="bg-card rounded-2xl shadow-elevated p-8">
           {/* Logo and Title */}
           <div className="text-center mb-8">
-            <div className="h-16 w-16 rounded-2xl warm-gradient flex items-center justify-center mx-auto mb-4 shadow-glow">
-              <Church className="h-8 w-8 text-primary-foreground" />
-            </div>
-            <h1 className="text-2xl font-bold text-foreground">Church Admin</h1>
+            <img
+                src="/lordsChurch.jpg"
+                alt="Lords Church"
+                style={{ borderRadius: '10px', width: 64, height: 64, objectFit: 'cover' }}
+                className="mx-auto mb-4 shadow-glow"
+              />
+            <h1 className="text-2xl font-bold text-foreground">Lords Church Admin</h1>
             <p className="text-muted-foreground mt-2">Sign in to manage your church</p>
           </div>
 
@@ -104,7 +107,7 @@ const Login: React.FC = () => {
           </form>
         </div>
 
-        <p className="text-center text-sm text-primary-foreground/70 mt-6">
+        <p className="text-center text-sm text-primary-foreground/70 mt-6 text-white">
           Church Management System
         </p>
       </div>
